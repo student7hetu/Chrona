@@ -5,6 +5,7 @@ import { connectDB } from './config/db';
 import authRoutes from './routes/auth.route';
 import userRoutes from './routes/user.route';
 import skillRoute from './routes/skill.route'
+import matchRoute from './routes/match.route';
 
 dotenv.config();
 const app = express();
@@ -21,6 +22,7 @@ app.get('/', (_req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/skill', skillRoute)
+app.use('/api/match', matchRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
