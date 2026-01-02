@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { connectDB } from './config/db';
 import authRoutes from './routes/auth.route';
 import userRoutes from './routes/user.route';
+import skillRoute from './routes/skill.route'
 
 dotenv.config();
 const app = express();
@@ -18,7 +19,8 @@ app.get('/', (_req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes); // ✅ FIX
+app.use('/api/users', userRoutes);
+app.use('/api/skill', skillRoute)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
